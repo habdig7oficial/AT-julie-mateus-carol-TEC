@@ -1,0 +1,6 @@
+
+##Ignorando a pasta de modulos do node
+/node_modules
+
+
+*.token
