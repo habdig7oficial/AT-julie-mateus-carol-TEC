@@ -1,5 +1,11 @@
 module.exports = function ( app ) {
-    app.get("/", function (req, res) {
-        res.render("index.ejs", {n_cadastro:222,n_vencidos:1})
+
+    let estatisticas = require("../models/estatisticas")
+
+    app.get("/", async function (req, res) {
+        let consulta =  await estatisticas.findOne({_id:"62f14cea9d304125958d293d"})
+        console.log(consulta)
+        res.render("index.ejs", {cadastro:consulta.cadastrado ,vencidos:consulta.vencidos, consumidos: consulta.consumidos })
+
     })
 }

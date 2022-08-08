@@ -1,30 +1,23 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro | Validade Fácil</title>
+    <title>Erro Email <%=email%> já cadastrado</title>
 
-        <%- include("./components/head.ejs")%>
-
-        <script src="/JS/validator.js"></script>
+    <%- include("./components/head.ejs")%>
 
 </head>
 <body>
 
-
     <div class="text-bg-dark">
-        <%- include('./components/nav.ejs'); %>
+        <%- include("./components/nav.ejs")%>
     </div>
 
-    <main>
-        <%-include('./components/form_r.ejs')%>
-    </main>
+    <h1 class="text-center">O Email <%=email%> já foi cadastrado</h1>
 
     <div class="text-bg-dark">
         <%- include("./components/footer.ejs")%>
     </div>
-
-
 </body>
 </html>
