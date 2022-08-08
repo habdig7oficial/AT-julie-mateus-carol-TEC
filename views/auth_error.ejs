@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erro na autenticação</title>
+
+    <%- include("./components/head.ejs")%>
+
+    <script src="/JS/delay.js"></script>
+
+</head>
+<body>
+
+    <div class="text-bg-dark">
+        <%- include("./components/nav.ejs")%>
+    </div>
+
+    <h3 class="text-center">Erro na autenticação por favor verifique seu email e senha e tente novamente</h3>
+
+    <div class="mt-5">
+        <p class="text-center">Redirecionando de volta em: </p>
+        <p id="counter" class="text-center h5"></p>
+    </div>
+
+    <div class="text-bg-dark">
+        <%- include("./components/footer.ejs")%>
+    </div>
+
+
+
+
+    
+</body>
+</html>

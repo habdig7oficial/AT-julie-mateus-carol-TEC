@@ -37,7 +37,9 @@ module.exports = function (app) {
 
         let consulta = await users.find({})
 
-        res.render("confirmar.ejs" , {dados})
+        //res.render("confirmar.ejs" , {dados})
+
+        res.redirect("/login" )
         
     })
 }
