@@ -15,11 +15,10 @@ let server = new lib_server.default({
 
 //lembrar de mudar para .atlas na produção 
 
-/*
+
 let db = new lib_db.default().atlas({
     user: process.env.USERAT,
     password: process.env.PASSWORDDB,
     thecluster: process.env.CLUSTER,
     banco: process.env.BANCO
 })
-*/
