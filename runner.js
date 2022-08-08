@@ -20,5 +20,3 @@ let db = new lib_db.default().atlas({
     thecluster: process.env.CLUSTER,
     banco: process.env.BANCO
 })
-
-console.log(process.env.PORT)
