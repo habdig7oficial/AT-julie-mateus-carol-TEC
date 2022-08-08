@@ -13,7 +13,7 @@ let server = new lib_server.default({
     views : true
 }).start()
 
-
+//lembrar de mudar para .atlas na produção 
 let db = new lib_db.default().atlas({
     user: process.env.USERAT,
     password: process.env.PASSWORDDB,
