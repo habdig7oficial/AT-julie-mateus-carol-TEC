@@ -26,14 +26,51 @@
         <%- include('./components/nav.ejs'); %>
     </div>
 
-    <main class="my-2">
-        <h1 class="text-center">
-            Validade Fácil
-        </h1>
+    <main class="my-2 mx-5">
+        <div class="titulo">
+
+            <h1 class="text-center">
+                Bem vindo ao 
+            </h1>
+
+            <h1 class="text-center">
+                <span class="logo bg-opdark rounded te"> 
+                    <span class="material-symbols-outlined">
+                    shopping_basket
+                    </span> 
+                    Validade Fácil</span>
+            </h1>
+        </div>
+
+
+        <p class="mt-5 text-center">
+           Gerencie facilmente suas compras e datas de validade, de forma fácil, rápida e gratuíta 
+        </p>
+
+
+
+        <div class="d-flex justify-content-center">
+            <input type="button" class="text-center btn-success btn " value="Cadastre-se Agora">
+        </div>
+ 
+        <div class="cadastro text-center my-5 bg-opdark text-bg-dark rounded py-3">
+
+            <h2> Até agora tivermos </h2>
+
+                <p class="h2 destaque"><%=n_cadastro%> cadastros</p>
+
+                <p class="h2 destaque"><%=n_vencidos%> produtos vencidos</p>
+
+                <p class="h2 destaque"><%=n_vencidos%> produtos consumidos</p>
+
+        </div>
+
+
     </main>
     
+    
 
-    <div class="text-bg-dark ">
+    <div class="text-bg-dark">
         <%- include("./components/footer.ejs")%>
     </div>
 

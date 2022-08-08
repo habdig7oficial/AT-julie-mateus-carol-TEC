@@ -21,14 +21,26 @@ h1,h2,h3,h4,h5{
     font-weight: bold;
 }
 
+
 .logo{
     color: var(--green);
-    /*border-bottom: 2.5px solid var(--yellow);*/
+    border-bottom: 2.5px solid var(--green);
+
+}
+
+.destaque{
+    color: var(--green);
+
 }
 
 h3{
     font-size: 1.5rem;
 }
+
+p,a,li{
+    font-size: 1.05rem;
+}
+
 
 a{
     color: inherit;
@@ -41,4 +53,12 @@ a :visited {
 
 a:hover{
     color: var(--yellow);
+}
+
+.bg-opdark{
+    background-color: var(--bs-dark);
+    opacity: 0.90;
+    padding: 0.20rem;
+
+
 }
