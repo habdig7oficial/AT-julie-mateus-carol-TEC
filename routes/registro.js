@@ -22,17 +22,22 @@ module.exports = function (app) {
             return res.render( "email_cadastrado.ejs", {email: dados.email})
         }
 
+        let argon2 = require("argon2")
+
+            let senha_hash = await argon2.hash(dados.password[0])
+
+
         console.log(repetido)
 
         let gravar = await new users({
             Nome: dados.name,
             Email: dados.email,
-            Senha: dados.password[0],
+            Senha: senha_hash,
         }).save()
 
         let consulta = await users.find({})
 
-        res.send(dados)
+        res.render("confirmar.ejs" , {dados})
         
     })
 }

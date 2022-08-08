@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Erro Email <%=email%> já cadastrado</title>
+    <title>Esperando confirmação do Email <%=dados.email%></title>
 
     <%- include("./components/head.ejs")%>
 
@@ -14,10 +14,13 @@
         <%- include("./components/nav.ejs")%>
     </div>
 
-    <h1 class="text-center">O Email <%=email%> já foi cadastrado</h1>
+    <h1 class="text-center">Esperando confirmação do email <%=dados.email%> </h1>
+
+    <h5 class="text-center">muito obrigado <%=dados.name%> por se cadastrar</h5>
 
     <div class="text-bg-dark">
         <%- include("./components/footer.ejs")%>
     </div>
+    
 </body>
 </html>
