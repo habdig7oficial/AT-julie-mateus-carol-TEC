@@ -6,7 +6,7 @@
 
     <%- include("./components/head.ejs")%>
 
-    <title> Seus Produtos (<%=dados.Email%>) | Validade Fácil</title>
+    <title> Seus Produtos (<%=consulta.Email%>) | Validade Fácil</title>
 
 
 </head>
@@ -47,15 +47,18 @@
             
                             <label for="produto">Insira o Nome do Produto:</label>
                             <div class="my-1"></div>
-                            <input class="rounded ml-1 form-control" type="text" name="produto" placeholder="Nome do seu produto">
+                            <input class="rounded ml-1 form-control" type="text" name="produto" placeholder="Nome do seu produto" required>
                             
                             <div class="my-2"></div>
     
                             <label for="data">Insira a data de Validade</label>
                             <div class="my-1"></div>
-                            <input class="rounded ml-1 form-control" type="date" name="data" placeholder="Nome do seu produto">
+                            <input class="rounded ml-1 form-control" type="date" name="data" placeholder="Nome do seu produto" required>
                             
                             <div class="my-2"></div>
+
+                            <input type="hidden" name="email" value="<%=consulta.Email%>">
+                            <input type="hidden" name="secret" value="<%=query%>">
             
                             <input class="btn btn-success form-control" type="submit" id="btn" value="Realizar Cadastro">
     

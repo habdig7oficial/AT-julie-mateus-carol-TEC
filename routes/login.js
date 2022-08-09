@@ -46,7 +46,7 @@ module.exports = function(app){
 
                 let token = jwt.sign({
                     data: cadastrado._id
-                  }, secret, { expiresIn: "20s" });
+                  }, secret, { expiresIn: "1h" });
 
 
   
