@@ -4,7 +4,7 @@ const model = mongoose.Schema({
     Nome: String,
     Email: String,
     Senha: String,
-    JWT: String,
+    JWT: {type:String, default: ""},
     data_de_cadastro: {type: Date,default: Date.now()}
 })
 
