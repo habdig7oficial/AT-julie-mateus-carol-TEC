@@ -6,6 +6,7 @@
     --black: rgb(0,0,0);
     --green:rgb(97, 232, 167);
     --yellow: rgb(235, 235, 103) ; 
+    --white: rgb(255,255,255);
 }
 
 ::selection{
@@ -31,6 +32,10 @@ h1,h2,h3,h4,h5{
 .destaque{
     color: var(--green);
 
+}
+
+.text-underline{
+    border-bottom: 2.5px solid var(--white);
 }
 
 h3{

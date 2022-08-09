@@ -27,7 +27,7 @@ module.exports = function(app){
             console.log(verificar)
 
             if (cadastrado && dados.email == cadastrado.Email && verificar === true ){
-                return res.send(dados)
+                return res.render("application.ejs", {dados})
             }
     
         }

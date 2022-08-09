@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", function(){
+        
 // Set the date we're counting down to
 var over = new Date().getTime() + 10000;
 
@@ -25,3 +27,6 @@ var x = setInterval(function() {
     location.replace("/login")
   }
 }, 1000);
+    
+
+})

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <%- include("./components/head.ejs")%>
+
+    <title> Seus Produtos (<%=dados.email%>) | Validade Fácil</title>
+
+
+</head>
+<body>
+
+    <div class="text-bg-dark">
+        <%- include("./components/nav_log.ejs")%>
+    </div>
+
+
+    <main>
+        <div class="d-flex align-items-center flex-column border border-success bg-opdark rounded mt-4 m-auto">
+            <p>
+                <a class="btn btn-outline-success mt-3" data-bs-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapse1">
+                  Link with href
+                </a>
+              </p>
+
+        </div>
+              <div class="collapse" id="collapse1">
+                <div class="card card-body mb-3">
+                  Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                </div>
+              </div>
+
+    </main>
+
+
+    <div class="text-bg-dark">
+        <%- include("./components/footer.ejs")%>
+    </div>
+</body>
+</html>
