@@ -46,7 +46,7 @@ module.exports = function(app){
 
                 let token = jwt.sign({
                     data: cadastrado._id
-                  }, secret, { expiresIn: "60s" });
+                  }, secret, { expiresIn: "20s" });
 
 
   
@@ -63,7 +63,7 @@ module.exports = function(app){
             console.log(err)
         }
 
-        return res.render("auth_error.ejs", {email: dados.email})
+        return res.redirect(`/err?data=${dados.email}`)
 
 
 

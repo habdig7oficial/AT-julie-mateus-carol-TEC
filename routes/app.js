@@ -2,19 +2,17 @@ module.exports = function (app){
 
     app.get("/app", async function(req,res){
 
-        let query = req.query
-
-        console.log(query)
-        
-        let users = require("../models/users")
-
-        let arr = query.data.split(",")
-
-        console.log(arr)
+        //console.log(arr)
 
         let jwt = require("jsonwebtoken")
     
         try{
+
+            let query = req.query
+        
+            let users = require("../models/users")
+    
+            let arr = query.data.split(",")
 
             let consulta =  await users.findOne({email: arr[1]})
 
@@ -32,7 +30,7 @@ module.exports = function (app){
         }
 
         catch{
-            return res.redirect("/login")
+            return res.redirect("/err")
         }
 
 
