@@ -31,10 +31,10 @@ module.exports = function(app){
             if (cadastrado && dados.email == cadastrado.Email && verificar === true ){
                 //return res.render("application.ejs", {dados})
 
-                function makeid(length) {
-                    var result           = '';
-                    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()|/+';
-                    var charactersLength = characters.length;
+                function makescret(length) {
+                    let result           = '';
+                    let characters       = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM,./?-=+`~!@#$%^&*()1234567890";
+                    let charactersLength = characters.length;
                     for ( var i = 0; i < length; i++ ) {
                       result += characters.charAt(Math.floor(Math.random() * 
                  charactersLength));
@@ -42,11 +42,11 @@ module.exports = function(app){
                    return result;
                 }
 
-                let secret = makeid(20)
+                let secret = makescret(50)
 
                 let token = jwt.sign({
                     data: cadastrado._id
-                  }, secret, { expiresIn: "1h" });
+                  }, secret, { expiresIn: "30min" });
 
 
   

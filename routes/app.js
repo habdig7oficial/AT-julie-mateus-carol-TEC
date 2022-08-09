@@ -1,5 +1,7 @@
 module.exports = function (app){
 
+    let produtos = require("../models/produtos")
+
     app.get("/app", async function(req,res){
 
         //console.log(arr)
@@ -22,8 +24,12 @@ module.exports = function (app){
 
                 let id = jwt.verify(arr[0], consulta.JWT);
                 console.log(query)
+
+                let read = await produtos.find({Email : arr[1]},)
+
+                console.log(read)
     
-                return res.render(`application.ejs`, { consulta, query : query.data })
+                return res.render(`application.ejs`, { consulta, query : query.data, read })
                 
             }
     
@@ -66,13 +72,21 @@ module.exports = function (app){
     
                 //return res.render(`application.ejs`, { consulta, query : query.data })
 
-                return res.send("ok")
+
+                let gravar = await new produtos({
+                    Usuario: arr[1] ,
+                    Produto: dados.produto,
+                    Data_validade: dados.data,
+                }).save()
+            
+                res.redirect(`/app?data=${arr[0]},${arr[1]}`)
+                
                 
             }
 
         }
         catch(err){
-            return res.redirect(err)
+            return res.redirect("/err")
         }
 
         /*
