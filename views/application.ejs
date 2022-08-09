@@ -18,19 +18,67 @@
 
 
     <main>
-        <div class="d-flex align-items-center flex-column border border-success bg-opdark rounded mt-4 m-auto">
+        <div class="d-flex align-items-center justify-content-center border border-success bg-opdark rounded mt-4 mx-5 m-auto flex-row ">
             <p>
-                <a class="btn btn-outline-success mt-3" data-bs-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapse1">
-                  Link with href
+                <a class="btn btn-success mx-2 mt-3" data-bs-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapse1">
+                Cadastrar Produtos
                 </a>
-              </p>
+            </p>
+
+            <p>
+                <a class="btn btn-success mx-2 mt-3" data-bs-toggle="collapse" href="#collapse2" role="button" aria-expanded="false" aria-controls="collapse2">
+                Vizualizar produtos
+                </a>
+            </p>
 
         </div>
-              <div class="collapse" id="collapse1">
+
+
+        <div class="d-flex justify-content-center align-items-center flex-column my-2 mx-2">
+            <div class="collapse " id="collapse1">
                 <div class="card card-body mb-3">
-                  Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                    <div class="d-flex m-2 p-4 text-bg-dark rounded flex-column justify-content-center ">
+            
+                        <form action="/produtos" method="post">
+                            
+                            <h5 class="text-center">Cadastrar Produtos</h5>
+        
+                            <div class="my-3"></div>
+            
+                            <label for="produto">Insira o Nome do Produto:</label>
+                            <div class="my-1"></div>
+                            <input class="rounded ml-1" type="text" name="produto" placeholder="Nome do seu produto">
+                            
+                            <div class="my-2"></div>
+    
+                            <label for="data">Insira a data de Validade</label>
+                            <div class="my-1"></div>
+                            <input class="rounded ml-1" type="date" name="data" placeholder="Nome do seu produto">
+                            
+                            <div class="my-2"></div>
+            
+                            <input class="btn btn-success" type="submit" id="btn" value="Realizar Cadastro">
+    
+                            <div class="my-3"></div>
+
+                        </form>
+            
+
+        
+
+
+                    </div>
+                
                 </div>
-              </div>
+            </div>
+            <div class="collapse show" id="collapse2">
+                <div class="card card-body mb-3 p-2">
+
+                    <div class="m-auto">
+                        dddd
+                    </div>
+            </div>
+        </div>
 
     </main>
 
@@ -38,5 +86,7 @@
     <div class="text-bg-dark">
         <%- include("./components/footer.ejs")%>
     </div>
+
+
 </body>
 </html>
