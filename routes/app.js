@@ -4,7 +4,7 @@ module.exports = function (app){
 
     app.get("/app", async function(req,res){
 
-        //console.log(arr)
+        ////console.log(arr)
 
         let jwt = require("jsonwebtoken")
     
@@ -18,16 +18,16 @@ module.exports = function (app){
 
             let consulta =  await users.findOne({email: arr[1]})
 
-            console.log(consulta)
+            //console.log(consulta)
 
             if(consulta){
 
                 let id = jwt.verify(arr[0], consulta.JWT);
-                console.log(query)
+                //console.log(query)
 
                 let read = await produtos.find({Email : arr[1]},)
 
-                console.log(read)
+                //console.log(read)
     
                 return res.render(`application.ejs`, { consulta, query : query.data, read })
                 
@@ -64,7 +64,7 @@ module.exports = function (app){
 
             let consulta =  await users.findOne({email: arr[1]})
 
-            console.log(consulta)
+            //console.log(consulta)
 
             if(consulta){
 
@@ -78,6 +78,16 @@ module.exports = function (app){
                     Produto: dados.produto,
                     Data_validade: dados.data,
                 }).save()
+
+                let rc = "62f14cea9d304125958d293d"
+
+                let estatisticas = require("../models/estatisticas")
+
+                let previos = await estatisticas.findOne({_id: rc })
+
+                console.log(previos)
+
+                let novo = await estatisticas.findOneAndUpdate({_id: rc}, {cadastrado: previos.cadastrado + 1})
             
                 res.redirect(`/app?data=${arr[0]},${arr[1]}`)
                 
@@ -86,6 +96,7 @@ module.exports = function (app){
 
         }
         catch(err){
+            console.log(err)
             return res.redirect("/err")
         }
 
