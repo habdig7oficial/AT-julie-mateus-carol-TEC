@@ -4,6 +4,7 @@ const model = mongoose.Schema({
     Usuario: String,
     Produto: String,
     Data_validade: Date,
+    Status:{type: Number, default:0},
     Alterado: {type: Boolean, default: false}
 
 })
