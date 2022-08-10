@@ -1,17 +1,26 @@
 const produtos = require("../models/produtos")
 
 module.exports = function ( app ){
-    app.post(`/vencidos`, async function(req,res){
+    app.post(`/alterados`, async function(req,res){
 
         try{
             let jwt = require("jsonwebtoken")
             let dados = req.body
+
+            console.log(dados)
+
+            console.log("end")
+
 
             let users = require("../models/users")
             let produtos = require("../models/produtos")
 
     
             let arr = dados.secret.split(",")
+
+
+
+            console.log(dados.status)
 
             let consulta =  await users.findOne({email: arr[1]})
 
@@ -29,9 +38,9 @@ module.exports = function ( app ){
 
                console.log(value)
 
-                let alterar = await produtos.findOneAndUpdate({_id: value},{Status: 3} )
+                let alterar = await produtos.findOneAndUpdate({_id: value},{Produto: dados.alterar_produto ,Status: dados.Status, Data_validade: dados.data, Alterado : true} )
 
-                console.log(alterar)
+                //console.log(alterar)
 
                 let rc = "62f14cea9d304125958d293d"
 

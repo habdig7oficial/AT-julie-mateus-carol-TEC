@@ -7,6 +7,7 @@
     --green:rgb(97, 232, 167);
     --yellow: rgb(235, 235, 103) ; 
     --white: rgb(255,255,255);
+    --red: rgb(245, 68, 61);
 }
 
 ::selection{
@@ -27,6 +28,11 @@ h1,h2,h3,h4,h5,h6{
     color: var(--green);
     border-bottom: 2.5px solid var(--green);
 
+}
+
+.vencido{
+    color: var(--red);
+    border-bottom: 2.5px solid var(--red);
 }
 
 .destaque{

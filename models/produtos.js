@@ -9,6 +9,13 @@ const model = mongoose.Schema({
 
 })
 
+/*
+0 - ativo,
+1 - consumido,
+3 - vencido,
+? - excluido
+*/
+
 const produtos = mongoose.model("produtos", model)
 
 

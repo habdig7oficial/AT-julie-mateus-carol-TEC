@@ -73,6 +73,18 @@
                 
                 </div>
             </div>
+
+
+
+
+
+
+
+
+
+
+
+
             <div class="collapse show" id="collapse2">
                 <div class="card card-body mb-3 p-2">
 
@@ -81,19 +93,28 @@
 
                         <%for (let i = 0; i < read.length; i++){%>
 
+                            
+
                             <div class="m-auto">
                                 <div class="d-flex m-3 p-5 text-bg-dark rounded flex-column justify-content-center m-0 p-0">
-                    
-                    
-                                    <h5 class="text-center"><%=read[i].Produto%></h5>
+
+                                    <div class="d-flex flex-row justify-content-center">
+                                        <h5 class="text-center"><%=read[i].Produto%></h5>
+
+                                        <% if (read[i].Alterado){%>
+                                            <span class="material-symbols-outlined">
+                                                change_circle
+                                            </span>
+                                        <%}%>
+                                    </div>
                     
                                     <div class="my-3"></div>
                     
                                     <p class="text-center">Data de Validade</p>
                                     <div class="mt-1"></div>
                                     
-                                    <h2 class="text-center logo"> <%=read[i].Data_validade.toISOString().slice(0,10) %></h2>
-                    
+                                    <h2 class="text-center <%if ( (Date.now() > read[i].Data_validade && read[i].Status !== 1 )|| read[i].Status == 3 ){ %> vencido   <%}else{%> logo  <%}%>"> <%=read[i].Data_validade.toISOString().slice(0,10) %></h2>
+                                    
                                     <!--<div class="my-2"></div>-->
                     
  
@@ -101,43 +122,97 @@
                     
                                     <div class="d-flex flex-column justify-content-center">
                                         <form class="mx-2" action="/consumidos" method="post">
-                                            <input class="btn btn-success form-control m-2" type="submit" id="btn" value="Consumido" >
+                                            <input class="btn btn-success form-control m-2 <%if (read[i].Status == 1 || read[i].Status == 3 || (Date.now() > read[i].Data_validade && read[i].Status !== 1 ) ) {%> disabled btn-outline-success <%}%>" type="submit" id="btn" value="Consumido" >
                                             <input type="hidden" name="secret" value="<%=query%>">
                                             <input type="hidden" name="msg_id" value="<%=read[i]._id%>">
                                         </form>
 
-                                        <form class="mx-2" action="" method="post">
-                                            <input class="btn btn-outline-warning form-control  m-2" type="submit" id="btn" value="Alterar" >
+                                        <form class="mx-2" action="/alterados" method="post">
+                                            <input class="btn btn-outline-warning form-control  m-2" type="button" id="btn" value="Alterar"  data-bs-toggle="modal" data-bs-target="#alterarModal<%=i%>">
+        
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" data-bs-backdrop="static" id="alterarModal<%=i%>" tabindex="-1" aria-labelledby="alterarModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content text-bg-dark">
+                                                            <div class="modal-header">
+                                                            <h5 class="modal-title" id="alterarModalLabel">Alterar</h5>
+                                                            <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                            Você realmente deseja alterar o produto?
+
+                                                            <div>
+                                                                <div class="d-flex m-2 p-4 text-bg-dark rounded flex-column justify-content-center ">
+            
+                                                                    <div>
+                                                                        
+                                                                        <h5 class="text-center">Alterar Produtos</h5>
+                                                    
+                                                                        <div class="my-3"></div>
+                                                        
+                                                                        <label for="produto">Insira o Nome do Produto:</label>
+                                                                        <div class="my-1"></div>
+                                                                        <input class="rounded ml-1 form-control" type="text" value="<%=read[i].Produto%>" name="alterar_produto" placeholder="Nome do seu produto" required>
+                                                                        <%=i%>-<%=read[i]%>
+                                                                        <div class="my-2"></div>
+                                                
+                                                                        <label for="data">Insira a data de Validade</label>
+                                                                        <div class="my-1"></div>
+                                                                        <input class="rounded ml-1 form-control" value="<%=read[i].Data_validade.toISOString().slice(0,10)%>" type="date" name="data" placeholder="Nome do seu produto" required min="<%=new Date().toISOString().slice(0,10); %>">
+                                                                        
+                                                                        <div class="my-2"></div>
+                                        
+                                                                        <div class="form-check form-switch mt-4">
+                                                                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" name="status" >
+                                                                            <label class="form-check-label" for="flexSwitchCheckChecked">Insira <span class="text-secondary rounded bg-white p-1">A Consumir</span> ou <span class="text-primary bg-white p-1 rounded">Consumido</span></label>
+                                                                        </div>
+                                                
+                                                                        <div class="my-3"></div>
+                                            
+                                                                    </div>
+                                                            </div>
+
+                                                            </div>
+
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+                                                            <button type="submit" class="btn btn-warning">Confirmar Alteração</button>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                    
                                             <input type="hidden" name="secret" value="<%=query%>">
                                             <input type="hidden" name="msg_id" value="<%=read[i]._id%>">
                                         </form>
 
-                                        <form class="mx-2" action="/vencido" method="post">
-                                            <input class="btn btn-outline-danger form-control-lg form-control m-2" type="submit" id="btn" value="Vencido" >
+                                        <form class="mx-2" action="/vencidos" method="post">
+                                            <input class="btn btn-outline-danger form-control-lg form-control m-2  <%if (read[i].Status == 1 || read[i].Status == 3 || (Date.now() > read[i].Data_validade && read[i].Status !== 1 ) ) {%> disabled <%}%>" type="submit" id="btn" value="Vencido" >
                                             <input type="hidden" name="secret" value="<%=query%>">
                                             <input type="hidden" name="msg_id" value="<%=read[i]._id%>">
                                         </form>
 
                                         <form class="mx-2" action="/excluir" method="post">
-                                            <input class="btn btn-outline-info form-control  m-2" id="btn" value="Excluido"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <input class="btn btn-outline-info form-control  m-2" id="btn" value="Excluido"  data-bs-toggle="modal" data-bs-target="#ExcluirModal<%=i%>">
 
-                                                                                                <!-- Button trigger modal -->
+                                            <!-- Button trigger modal -->
 
                                                 
                                                 <!-- Modal -->
-                                                <div class="modal fade" data-bs-backdrop="static" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal fade" data-bs-backdrop="static" id="ExcluirModal<%=i%>" tabindex="-1" aria-labelledby="ExcluirModalLabel<%=i%>" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered">
                                                     <div class="modal-content text-bg-dark">
                                                         <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Confirmar</h5>
-                                                        <button type="button color" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        <h5 class="modal-title" id="ExcluirModalLabel">Confirmar</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
                                                         Você realmente deseja excluir o produto
                                                         </div>
                                                         <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
-                                                        <button type="submit" class="btn btn-primary">Confirmar exclusao</button>
+                                                        <button type="submit" class="btn btn-info">Confirmar exclusao</button>
                                                         </div>
                                                     </div>
                                                     </div>
@@ -149,24 +224,28 @@
                                         </form>
 
                                     </div>
-                    
-                                    <p></p>
 
                                 </div>
                             
                             </div>
-                        
 
                         <%}%>
 
                         <%if (read.length <= 0){ %>
                             <p class=" bg-opdark text-light p-3 m-3 rounded">Não Foram Encontrados cadastros</p>
                         <%}%>
-                    
-
-
                     </div>
             </div>
+
+
+
+
+
+
+
+
+
+
         </div>
 
     </main>

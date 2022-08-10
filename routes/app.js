@@ -27,6 +27,20 @@ module.exports = function (app){
 
                 let read = await produtos.find({Email : arr[1]},)
 
+                console.log(read)
+
+
+                read.sort(function (a, b) {
+                    if (a.Data_validade > b.Data_validade) {
+                      return 1;
+                    }
+                    if (a.Data_validade < b.Data_validade) {
+                      return -1;
+                    }
+                    // a must be equal to b
+                    return 0;
+                  });
+
                 //console.log(read)
     
                 return res.render(`application.ejs`, { consulta, query : query.data, read })
