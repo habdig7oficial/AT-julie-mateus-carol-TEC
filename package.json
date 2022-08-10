@@ -26,7 +26,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.5.1",
     "qmm-connect": "^0.0.18",
-    "qse-x": "^0.0.6"
+    "qse-x": "^0.0.8"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"
