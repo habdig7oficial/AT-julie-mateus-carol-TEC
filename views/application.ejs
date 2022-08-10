@@ -92,7 +92,7 @@
                             
 
                             <div class="m-auto">
-                                <div class="d-flex m-3 p-5 text-bg-dark rounded flex-column justify-content-center m-0 p-0">
+                                <div class="d-flex m-3 p-5 text-bg-dark rounded flex-column justify-content-center m-0 p-0 container-start">
 
                                     <div class="d-flex flex-row justify-content-center">
                                         <h5 class="text-center"><%=read[i].Produto%></h5>
@@ -109,7 +109,7 @@
                                     <p class="text-center">Data de Validade</p>
                                     <div class="mt-1"></div>
                                     
-                                    <h2 class="text-center Validade <%if ( (Date.now() > read[i].Data_validade && read[i].Status !== 1 )|| read[i].Status == 3 ){ %> vencido   <%}else{%> logo  <%}%>"> <%=read[i].Data_validade.toISOString().slice(0,10) %></h2>
+                                    <h2 class="text-center Validade <%if ( (Date.now() > read[i].Data_validade && read[i].Status !== 1 )|| read[i].Status == 3 ){ %> vencido   <%}else{%> logo  <%}%>"><%=read[i].Data_validade.toISOString().slice(0,10) %></h2>
                                     
                                     <!--<div class="my-2"></div>-->
                     
@@ -248,7 +248,7 @@
 
     <div class="fixed-bottom mb-3 justify-content-center d-flex">
         <div class="btn-group dropup ">
-            <button type="button" class="btn btn-success">
+            <button id="iall" type="button" class="btn btn-success clicking">
               Todos os produtos
             </button>
             <button type="button" class="btn btn-outline-success bg-dark opacity-75 dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
@@ -257,10 +257,10 @@
             <ul class="dropdown-menu p-3">
               <!-- Dropdown menu links -->
               <li>
-                <button class="btn form-control btn-outline-success my-1"> Ultimos 7 dias</button>
+                <button id="i7" class="btn form-control btn-outline-success my-1 clicking"> Próximos 7 dias</button>
             
             </li>
-              <li><button class="btn form-control btn-outline-success my-1"> Ultimos 30 dias</button></li>
+              <li><button id="i30" class="btn form-control btn-outline-success my-1 clicking"> Próximos 30 dias</button></li>
             </ul>
           </div>
     </div>
