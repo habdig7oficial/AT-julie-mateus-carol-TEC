@@ -18,7 +18,15 @@ module.exports = function ( app ){
     
             let arr = dados.secret.split(",")
 
+            console.log(dados.status)
 
+
+            if (dados.status == 'on'){
+                dados.status = 1
+            } 
+            else{
+                dados.status = 0
+            }
 
             console.log(dados.status)
 
@@ -38,7 +46,7 @@ module.exports = function ( app ){
 
                console.log(value)
 
-                let alterar = await produtos.findOneAndUpdate({_id: value},{Produto: dados.alterar_produto ,Status: dados.Status, Data_validade: dados.data, Alterado : true} )
+                let alterar = await produtos.findOneAndUpdate({_id: value},{Produto: dados.alterar_produto ,Status: dados.status, Data_validade: dados.data, Alterado : true} )
 
                 //console.log(alterar)
 
