@@ -1,3 +1,5 @@
+
+/*
 let dotenv = require("dotenv").config()
 
 let lib_server = require("qse-x")
@@ -21,4 +23,43 @@ let db = new lib_db.default().atlas({
     password: process.env.PASSWORDDB,
     thecluster: process.env.CLUSTER,
     banco: process.env.BANCO
+})
+*/
+
+
+
+
+//carregar modulo do express 
+
+let mongoose = require("mongoose")
+
+const conexao = () => {
+
+    mongoose.connect(process.env.CString)
+}
+
+
+conexao()
+
+const express = require("express")
+
+//executar o modulo express 
+let app = express()
+
+//setando porta de execução 
+
+let port = process.env.PORT || 7777
+
+//criar uma instancia local 
+
+
+let consign = require("consign")
+
+consign()
+    .include("./routes").into(app)
+
+app.use(express.static("./assets"))
+
+app.listen(port, ()=>{
+    console.log(`Ouvindo a porta ${port} em http://localhost:${port}`)
 })
