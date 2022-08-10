@@ -49,11 +49,11 @@ document.addEventListener("DOMContentLoaded", function (params) {
                 if (days != 0 ) {
                     if ( Data_validade > limit){
                     container[i].classList.add("d-none")
-                    alert(true)
+                    //alert(true)
                     }
                     else{
                     container[i].classList.remove("d-none")
-                    alert(false)
+                    //alert(false)
                     }
                 }
                 else{
