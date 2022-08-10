@@ -8,6 +8,8 @@
 
     <title> Seus Produtos (<%=consulta.Email%>) | Validade Fácil</title>
 
+    <script src="/JS/mostrar.js"></script>
+
 
 </head>
 <body>
@@ -15,7 +17,6 @@
     <div class="text-bg-dark">
         <%- include("./components/nav_log.ejs")%>
     </div>
-
 
     <main>
         <div class="d-flex align-items-center justify-content-center border border-success bg-opdark rounded mt-4 mx-5 m-auto flex-row ">
@@ -80,11 +81,6 @@
 
 
 
-
-
-
-
-
             <div class="collapse show" id="collapse2">
                 <div class="card card-body mb-3 p-2">
 
@@ -113,7 +109,7 @@
                                     <p class="text-center">Data de Validade</p>
                                     <div class="mt-1"></div>
                                     
-                                    <h2 class="text-center <%if ( (Date.now() > read[i].Data_validade && read[i].Status !== 1 )|| read[i].Status == 3 ){ %> vencido   <%}else{%> logo  <%}%>"> <%=read[i].Data_validade.toISOString().slice(0,10) %></h2>
+                                    <h2 class="text-center Validade <%if ( (Date.now() > read[i].Data_validade && read[i].Status !== 1 )|| read[i].Status == 3 ){ %> vencido   <%}else{%> logo  <%}%>"> <%=read[i].Data_validade.toISOString().slice(0,10) %></h2>
                                     
                                     <!--<div class="my-2"></div>-->
                     
@@ -250,10 +246,31 @@
 
     </main>
 
+    <div class="fixed-bottom mb-3 justify-content-center d-flex">
+        <div class="btn-group dropup ">
+            <button type="button" class="btn btn-success">
+              Todos os produtos
+            </button>
+            <button type="button" class="btn btn-outline-success bg-dark opacity-75 dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="visually-hidden ">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu p-3">
+              <!-- Dropdown menu links -->
+              <li>
+                <button class="btn form-control btn-outline-success my-1"> Ultimos 7 dias</button>
+            
+            </li>
+              <li><button class="btn form-control btn-outline-success my-1"> Ultimos 30 dias</button></li>
+            </ul>
+          </div>
+    </div>
 
-    <div class="text-bg-dark">
+
+
+    <div class="text-bg-dark ">
         <%- include("./components/footer.ejs")%>
     </div>
+
 
 
 </body>
