@@ -6,6 +6,17 @@ document.addEventListener("DOMContentLoaded", function (params) {
 
     let MC = document.querySelector("#MC")
 
+
+            for (let i = 0; i < container.length; i++) {
+
+            if ((container[i].classList.contains("status-1"))  && MC.checked == false ) {
+                container[i].classList.add("d-none")
+            } 
+            else {
+                container[i].classList.remove("d-none")
+            }
+            
+        } //certo
     
     MC.addEventListener("click",function () {
         console.log(container)
@@ -13,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function (params) {
         for (let i = 0; i < container.length; i++) {
             console.log(container[i].classList)
 
-            if ((container[i].classList.contains("status-1") == false) || MC.checked == false) {
+            if ((container[i].classList.contains("status-1") == false) || MC.checked ==  true) {
                 container[i].classList.remove("d-none")
             } 
             else {
@@ -78,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function (params) {
                     //alert(false)
                     }
                 }
-                else if ((container[i].classList.contains("status-1") == false) || MC.checked == false) {
+                else if ((container[i].classList.contains("status-1") == false) || MC.checked ==  true) {
                     container[i].classList.remove("d-none")
                 }
 
