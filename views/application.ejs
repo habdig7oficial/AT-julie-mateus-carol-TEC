@@ -65,10 +65,7 @@
                             <div class="my-3"></div>
 
                         </form>
-            
-
         
-
 
                     </div>
                 
@@ -80,9 +77,22 @@
 
 
 
-
             <div class="collapse show" id="collapse2">
                 <div class="card card-body mb-3 p-2">
+
+                    <div class="text-bg-dark bg-opdark border border-light rounded p-2 m-3">
+
+
+                        <div class="form-check justify-content-center d-flex">
+                            <input class="form-check-input" type="checkbox" value="" id="MC">
+                            <div class="mx-1"></div>
+                            <label class="form-check-label" for="flexCheckDefault" >
+                              Não Mostrar Consumido
+                            </label>
+                          </div>
+
+                    </div>
+        
 
                     <div class="m-auto">
                         
@@ -92,7 +102,8 @@
                             
 
                             <div class="m-auto">
-                                <div class="d-flex m-3 p-5 text-bg-dark rounded flex-column justify-content-center m-0 p-0 container-start">
+                                <div class="d-flex m-3 p-5 text-bg-dark rounded flex-column justify-content-center m-0 p-0 container-start status-<%=read[i].Status%>">
+
 
                                     <div class="d-flex flex-row justify-content-center">
                                         <h5 class="text-center"><%=read[i].Produto%></h5>
@@ -204,11 +215,11 @@
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                        Você realmente deseja excluir o produto
+                                                        Você realmente deseja excluir o produto?
                                                         </div>
                                                         <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
-                                                        <button type="submit" class="btn btn-info">Confirmar exclusao</button>
+                                                        <button type="submit" class="btn btn-info">Confirmar exclusão?</button>
                                                         </div>
                                                     </div>
                                                     </div>

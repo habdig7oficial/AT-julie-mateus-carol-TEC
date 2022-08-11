@@ -4,6 +4,28 @@ document.addEventListener("DOMContentLoaded", function (params) {
 
     let click = document.querySelectorAll(".clicking")
 
+    let MC = document.querySelector("#MC")
+
+    
+    MC.addEventListener("click",function () {
+        console.log(container)
+
+        for (let i = 0; i < container.length; i++) {
+            console.log(container[i].classList)
+
+            if ((container[i].classList.contains("status-1") == false) || MC.checked == false) {
+                container[i].classList.remove("d-none")
+            } 
+            else {
+                container[i].classList.add("d-none")
+            }
+            
+        }
+
+    })
+
+
+
 
     for (let j = 0; j < click.length; j++) {
 
@@ -56,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function (params) {
                     //alert(false)
                     }
                 }
-                else{
+                else if ((container[i].classList.contains("status-1") == false) || MC.checked == false) {
                     container[i].classList.remove("d-none")
                 }
 
@@ -79,3 +101,5 @@ console.log(click)
 
 
 })
+
+
