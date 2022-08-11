@@ -1,5 +1,5 @@
 
-/*
+
 let dotenv = require("dotenv").config()
 
 let lib_server = require("qse-x")
@@ -24,13 +24,14 @@ let db = new lib_db.default().atlas({
     thecluster: process.env.CLUSTER,
     banco: process.env.BANCO
 })
-*/
+
 
 
 
 
 //carregar modulo do express 
 
+/*
 let mongoose = require("mongoose")
 
 const conexao = () => {
@@ -69,3 +70,5 @@ app.use(express.static("./assets"))
 app.listen(port, ()=>{
     console.log(`Ouvindo a porta ${port} em http://localhost:${port}`)
 })
+
+*/
