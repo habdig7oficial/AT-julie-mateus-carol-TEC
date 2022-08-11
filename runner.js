@@ -1,5 +1,5 @@
 
-
+/*
 let dotenv = require("dotenv").config()
 
 let lib_server = require("qse-x")
@@ -24,51 +24,50 @@ let db = new lib_db.default().atlas({
     thecluster: process.env.CLUSTER,
     banco: process.env.BANCO
 })
+*/ 
+
+let dotenv = require("dotenv").config()
 
 
-
-
-
-//carregar modulo do express 
-
-/*
-let mongoose = require("mongoose")
-
-const conexao = () => {
-
-    mongoose.connect(process.env.CString)
-}
-
-
-conexao()
 
 const express = require("express")
 
-//executar o modulo express 
-let app = express()
+const app = express()
 
-//setando porta de execução 
+app.use(express.urlencoded({ extended: false }))
 
-let port = process.env.PORT || 7777
+const porta = process.env.PORT || 7777
 
-//criar uma instancia local 
-
-app.set(express.urlencoded({extended: false}))
-
-let diretorio = require("path")
-
-diretorio = diretorio.join(__dirname, "routes");
-
-require("fs").readdirSync(diretorio).forEach(function(file) {
-  require("./routes/" + file)(app);
+const consign = require("consign")
 
 
+let routes_arr = [
+    require("./routes/alterados")(app),
+    require("./routes/app") (app),
+    require("./routes/consumidos") (app),
+    require("./routes/error") (app),
+    require("./routes/excluidos") (app),
+    require("./routes/index") (app),
+    require("./routes/login") (app),
+    require("./routes/registro") (app),
+    require("./routes/vencidos")(app)
+]
 
-});
-app.use(express.static("./assets"))
+const static = app.use(express.static("./assets"))
 
-app.listen(port, ()=>{
-    console.log(`Ouvindo a porta ${port} em http://localhost:${port}`)
+
+app.listen(porta, ()=>{
+    console.log("run")
 })
 
-*/
+//console.log(express.urlencoded({ extended: false }))
+
+
+let lib_db = require("qmm-connect")
+
+let db = new lib_db.default().atlas({
+    user: process.env.USERAT,
+    password: process.env.PASSWORDDB,
+    thecluster: process.env.CLUSTER,
+    banco: process.env.BANCO
+})
