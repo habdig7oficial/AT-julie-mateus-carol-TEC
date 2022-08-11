@@ -53,11 +53,16 @@ let port = process.env.PORT || 7777
 //criar uma instancia local 
 
 
-let consign = require("consign")
+let diretorio = require("path")
 
-consign()
-    .include("./routes").into(app)
+diretorio = diretorio.join(__dirname, "routes");
 
+require("fs").readdirSync(diretorio).forEach(function(file) {
+  require("./routes/" + file)(app);
+
+
+
+});
 app.use(express.static("./assets"))
 
 app.listen(port, ()=>{
