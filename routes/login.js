@@ -14,6 +14,8 @@ module.exports = function(app){
 
         console.log(dados)
 
+        console.log(dados)
+
         let argon2 = require("argon2")
 
         let jwt = require("jsonwebtoken")

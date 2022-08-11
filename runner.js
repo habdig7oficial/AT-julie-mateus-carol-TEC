@@ -52,6 +52,7 @@ let port = process.env.PORT || 7777
 
 //criar uma instancia local 
 
+app.set(express.urlencoded({extended: false}))
 
 let diretorio = require("path")
 
