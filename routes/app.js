@@ -25,7 +25,7 @@ module.exports = function (app){
                 let id = jwt.verify(arr[0], consulta.JWT);
                 //console.log(query)
 
-                let read = await produtos.find({Email : arr[1]},)
+                let read = await produtos.find({Usuario : arr[1]},)
 
                 console.log(read)
 
