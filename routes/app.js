@@ -42,8 +42,10 @@ module.exports = function (app){
                   });
 
                 //console.log(read)
+
+                
     
-                return res.render(`application.ejs`, { consulta, query : query.data, read })
+               return res.render(`application.ejs`, { consulta: arr[1] , query : query.data, read })
                 
             }
     

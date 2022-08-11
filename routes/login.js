@@ -57,6 +57,8 @@ module.exports = function(app){
 
                   let secret_db = await users.findOneAndUpdate({Enail: dados.email}, {JWT: secret})
 
+                  console.log(cadastrado)
+
                 return res.redirect(`/app?data=${token},${cadastrado.Email}`)
             }
     
